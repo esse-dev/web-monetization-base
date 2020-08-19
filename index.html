@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>web monetization base</title>
+    <!-- replace the monetization meta content with your own payment pointer -->
+    <!-- to sign up for a Web Monetization wallet and obtain a payment pointer, check out the options here: https://webmonetization.org/#wallets -->
+    <!-- <meta name="monetization" content="<YOUR_PAYMENT_POINTER_HERE>"> -- example on next line -->
+    <meta name="monetization" content="$ilp.uphold.com/aEYQyH47UYPY">
+</head>
+<body>
+    <h1>web monetization base by <a href="https://github.com/esse-dev">esse-dev</a></h1>
+    <p>
+        this site contains basic things to add to your site to enable <a href="https://webmonetization.org/">Web Monetization</a><br>
+        to see how this site is monetized, peek at the code via inspect/view source or view the code on GitHub <a href="https://github.com/esse-dev/web-monetization-base">here</a>!<br><br>
+        you'll see an "ad" div below if you don't have a Web Monetization Provider installed in your browser.
+    </p>
+    <div id="ad" style="background-color: #5D67FF; color: #FFF">hello i am an "ad"</div>
+    <p>
+        <a href="https://esse-dev.github.io/borzoi/">beginner-friendly drag and drop tutorial on Web Monetization</a><br>
+        more info on getting started with Web Monetization <a href="https://webmonetization.org/docs/getting-started">here</a>
+    </p>
+    <script>
+        // Check that the monetization object exists
+        if (document.monetization) {
+            // Listen for 'monetizationprogress' monetization event
+            document.monetization.addEventListener('monetizationprogress', event => {
+                // Payment has been received from the site visitor
+                // NOTE: You should add code to do backend processing in order to validate the payment
+                // Since the user is sending money to the site, let's hide our "ad"
+                document.getElementById('ad').style.display = 'none';
+            })
+        } else {
+            // If the monetization object exists then show the "ad"
+            document.getElementById('ad').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
