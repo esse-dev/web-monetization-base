@@ -8,14 +8,14 @@
     <meta name="monetization" content="MY_PAYMENT_POINTER">
 </head>
 <body>
-    <div id="ad" style="background-color: #5D67FF; color: #FFF">hello i am an "ad"</div>
+    <div id="thank-you-note" style="display: none; background-color: #5D67FF; color: #FFF">thank you for supporting me via Web Monetization <3</div>
     <script>
         if (document.monetization) {
             document.monetization.addEventListener('monetizationprogress', event => {
-                document.getElementById('ad').style.display = 'none';
+                document.getElementById('thank-you-note').style.display = 'block';
             })
         } else {
-            document.getElementById('ad').style.display = 'block';
+            document.getElementById('thank-you-note').style.display = 'none';
         }
     </script>
 </body>

@@ -12,9 +12,10 @@
     <p>
         this site contains basic things to add to your site to enable <a href="https://webmonetization.org/">Web Monetization</a><br>
         to see how this site is monetized, peek at the code via inspect/view source or view the code on GitHub <a href="https://github.com/esse-dev/web-monetization-base">here</a>!<br><br>
-        you'll see an "ad" div below if you don't have a Web Monetization Provider installed in your browser.
+        you'll see a "thank you" note below if you have a Web Monetization Provider installed in your browser and you are sending payment.
     </p>
-    <div id="ad" style="background-color: #5D67FF; color: #FFF">hello i am an "ad"</div>
+    <div id="thank-you-note" style="display: none; background-color: #5D67FF; color: #FFF">thank you for supporting me via Web Monetization <3</div>
+    <hr>
     <p>
         <a href="https://esse-dev.github.io/borzoi/">beginner-friendly drag and drop tutorial on Web Monetization</a><br>
         more info on getting started with Web Monetization <a href="https://webmonetization.org/docs/getting-started">here</a>
@@ -26,12 +27,12 @@
             document.monetization.addEventListener('monetizationprogress', event => {
                 // Payment has been received from the site visitor
                 // NOTE: You should add code to do backend processing in order to validate the payment
-                // Since the user is sending money to the site, let's hide our "ad"
-                document.getElementById('ad').style.display = 'none';
+                // Since the user is sending money to the site, let's show our "thank you" note!
+                document.getElementById('thank-you-note').style.display = 'block';
             })
         } else {
-            // If the monetization object exists then show the "ad"
-            document.getElementById('ad').style.display = 'block';
+            // If the monetization object does not exist, don't show thank you
+            document.getElementById('thank-you-note').style.display = 'none';
         }
     </script>
 </body>
