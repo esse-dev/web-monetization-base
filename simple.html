@@ -1,0 +1,22 @@
+<!--
+    Simplified version of index.html with just the minimum code.
+    Replace MY_PAYMENT_POINTER with your own payment pointer.
+-->
+
+<html lang="en">
+<head>
+    <meta name="monetization" content="MY_PAYMENT_POINTER">
+</head>
+<body>
+    <div id="ad" style="background-color: #5D67FF; color: #FFF">hello i am an "ad"</div>
+    <script>
+        if (document.monetization) {
+            document.monetization.addEventListener('monetizationprogress', event => {
+                document.getElementById('ad').style.display = 'none';
+            })
+        } else {
+            document.getElementById('ad').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
